@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write --cache .",
-    "lint": "lint --cache ."
+    "lint": "lint --cache .",
+    "postinstall": "husky install"
   },
   "eslintConfig": {
     "extends": [
