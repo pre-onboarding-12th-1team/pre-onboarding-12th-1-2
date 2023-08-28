@@ -24,7 +24,8 @@
     "eject": "react-scripts eject",
     "format": "prettier --write --cache .",
     "lint": "eslint --cache .",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "deploy": "npm run build && aws s3 sync build/ s3://pre-onboarding-12th-1-2 --delete"
   },
   "eslintConfig": {
     "extends": [
