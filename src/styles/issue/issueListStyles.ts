@@ -19,6 +19,7 @@ export const List = styled.ul`
   height: calc(100vh - 5rem);
   margin: 0 auto;
   overflow: scroll;
+  list-style: none;
 `
 
 export const ListItem = styled.li``
