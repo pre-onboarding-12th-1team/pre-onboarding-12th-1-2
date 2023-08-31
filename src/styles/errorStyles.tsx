@@ -8,3 +8,6 @@ export const Wrapper = styled(GlobalWrapper)`
   margin-top: 10rem;
   min-height: auto;
 `
+export const StyledCode = styled.code`
+  white-space: pre-line;
+`
