@@ -1,6 +1,6 @@
 [깃헙 레파지토리](https://github.com/facebook/react/issues)의 이슈 목록과 상세 내용을 확인하는 웹 사이트 구축
 
-[배포링크]()
+[배포링크](http://pre-onboarding-12th-1-2.s3-website.ap-northeast-2.amazonaws.com/)
 
 ## 목차
 1. [팀원 소개](#팀원-소개)

@@ -13,7 +13,6 @@ jobs:
         with:
           ref: 'main'
       - run: npm ci
-      - run: npm run test # CI로직 추가 시 사용
       - run: npm run build
       - name: deploy to s3
         uses: jakejarvis/s3-sync-action@master

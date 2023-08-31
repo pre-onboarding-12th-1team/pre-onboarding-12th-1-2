@@ -24,4 +24,6 @@ export const List = styled.ul`
 
 export const ListItem = styled.li``
 
-export const LastElment = styled.li``
+export const LastElment = styled.li`
+  height: 1rem;
+`
