@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 import { styled } from 'styled-components'
 
 export const Wrapper = styled.div`
-  width: 90%;
-  min-height: 90vh;
+  width: 70%;
+  height: calc(100vh - 5rem);
+  margin: 0 auto;
 `
 
 export const StyledLink = styled(Link)`
