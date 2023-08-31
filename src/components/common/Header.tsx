@@ -1,11 +1,11 @@
+import { OWNER, REPO } from 'constants/github'
 import { HeaderCenter, StyledLink, StyledSpan } from 'styles/headerStyles'
 
 const Header = () => (
-  //TODO: OWNER, REPOSITORY 변수로 바꿔주기
   <HeaderCenter>
     <StyledLink to="/">
-      <StyledSpan>&apos;OWNER&apos;</StyledSpan>
-      <StyledSpan>&apos;REPOSITRY&apos;</StyledSpan>
+      <StyledSpan>{OWNER}</StyledSpan>
+      <StyledSpan>{REPO}</StyledSpan>
     </StyledLink>
   </HeaderCenter>
 )
