@@ -14,3 +14,13 @@ export const StyledLink = styled(Link)`
     transition: transform 0.2s ease-in-out;
   }
 `
+export const List = styled.ul`
+  width: 90%;
+  height: calc(100vh - 5rem);
+  margin: 0 auto;
+  overflow: scroll;
+`
+
+export const ListItem = styled.li``
+
+export const LastElment = styled.li``
