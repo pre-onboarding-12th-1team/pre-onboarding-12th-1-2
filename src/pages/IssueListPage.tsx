@@ -10,9 +10,9 @@ import { LastElment, List, ListItem } from 'styles/issue/issueListStyles'
 
 const IssueListPage = () => {
   const dispatch = useAppDispatch()
-  const { issues, isLoading } = useAppSelector((state) => state.issues)
+  const { issues, isLoading, error } = useAppSelector((state) => state.issues)
   const { containerRef, lastElRef } = useInfiniteScroll<HTMLUListElement, HTMLLIElement>(
-    () => !isLoading && dispatch(fetchIssues()),
+    () => !isLoading && !error && dispatch(fetchIssues()),
   )
 
   return (
