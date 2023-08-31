@@ -12,7 +12,7 @@ const IssueListPage = () => {
   const dispatch = useAppDispatch()
   const { issues, isLoading } = useAppSelector((state) => state.issues)
   const { containerRef, lastElRef } = useInfiniteScroll<HTMLUListElement, HTMLLIElement>(
-    () => dispatch(fetchIssues()),
+    () => !isLoading && dispatch(fetchIssues()),
   )
 
   return (
