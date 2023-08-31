@@ -1,4 +1,5 @@
 import App from 'App'
+import Error from 'components/error/Error'
 import IssueDetailPage from 'pages/IssueDetailPage'
 import IssueListPage from 'pages/IssueListPage'
 import NotFoundPage from 'pages/NotFoundPage'
@@ -13,16 +14,12 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <IssueListPage />,
-        // loader: async ({ params }) => {
-        //     return fetch(`/api/teams/${params.teamId}.json`);
-        //   },
+        errorElement: <Error />,
       },
       {
         path: '/detail/:id',
         element: <IssueDetailPage />,
-        // loader: async ({ params }) => {
-        //     return fetch(`/api/teams/${params.teamId}.json`);
-        //   },
+        errorElement: <Error />,
       },
     ],
   },
