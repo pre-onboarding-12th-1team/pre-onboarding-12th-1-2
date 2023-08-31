@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from 'components/common/Header'
+import Error from 'components/error/Error'
+import { Outlet } from 'react-router-dom'
+import { useAppSelector } from 'redux/hooks'
 
-function App() {
+const App = () => {
+  const { error: issuesError } = useAppSelector((state) => state.issues)
+  const { error: detailError } = useAppSelector((state) => state.detail)
+  const error = detailError || issuesError
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>CICD 구현 완료</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      {error ? <Error error={error} /> : <Outlet />}
+    </>
+  )
 }
 
-export default App;
+export default App
