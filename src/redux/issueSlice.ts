@@ -41,7 +41,4 @@ export const issueSlice = createSlice({
   },
 })
 
-// TODO: 언젠가 사용하기 위한 보일러 플레이트
-// export const {} = issueSlice.actions
-
 export default issueSlice.reducer

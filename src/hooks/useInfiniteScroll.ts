@@ -1,32 +1,32 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { useAppDispatch, useAppSelector } from 'redux/hooks'
-import { fetchIssues } from 'redux/issueSlice'
+import { useAppDispatch } from 'redux/hooks'
 
-const useInfiniteScroll = () => {
+const useInfiniteScroll = <C extends HTMLElement, L extends HTMLElement>(
+  onIntersect: VoidFunction,
+) => {
+  const containerRef = useRef<C>(null)
+  const lastElRef = useRef<L>(null)
   const dispatch = useAppDispatch()
-  const { currentPage, issues, isLoading } = useAppSelector((state) => state.issues)
-  const containerRef = useRef<HTMLUListElement>(null)
-  const lastElRef = useRef<HTMLLIElement>(null)
 
   const observer = useMemo(
     () =>
       new IntersectionObserver(
         (entries) => {
-          if (entries[0].isIntersecting) dispatch(fetchIssues())
+          if (entries[0].isIntersecting) onIntersect()
         },
         {
           root: containerRef.current,
         },
       ),
-    [dispatch],
+    [onIntersect],
   )
 
   useEffect(() => {
     if (lastElRef.current) observer.observe(lastElRef.current)
     return () => observer.disconnect()
-  }, [currentPage, dispatch, observer])
+  }, [dispatch, observer])
 
-  return { containerRef, lastElRef, issues, isLoading }
+  return { containerRef, lastElRef }
 }
 
 export default useInfiniteScroll
