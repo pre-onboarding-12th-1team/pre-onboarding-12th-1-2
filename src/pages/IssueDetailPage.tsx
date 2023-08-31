@@ -1,7 +1,8 @@
-import github from 'apis/github'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import { useParams } from 'react-router-dom'
+import { fetchDetail } from 'redux/detailSlice'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import remarkGfm from 'remark-gfm'
 import {
   ContentsArea,
@@ -11,25 +12,16 @@ import {
   StyledParagraph,
   TitleArea,
 } from 'styles/issue/issueDetailStyles'
-import { Issue } from 'types/issue'
 import { dateStringFormater } from 'utils/format'
 
 const IssueDetailPage = () => {
-  const [issue, setIssue] = useState<Issue>()
+  const dispatch = useAppDispatch()
   const { id } = useParams()
-
-  const fetchIssueData = async () => {
-    try {
-      const response = await github.getIssue(Number(id))
-      setIssue(response.data)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  const { issue } = useAppSelector((state) => state.detail)
 
   useEffect(() => {
-    fetchIssueData()
-  }, [])
+    dispatch(fetchDetail(+id!))
+  }, [dispatch, id])
 
   return (
     <IssueDetailWrap>
