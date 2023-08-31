@@ -9,7 +9,7 @@ export const IssueDetailWrap = styled.section`
   flex-direction: column;
   gap: 1px;
   padding: 50px;
-  width: 1080px;
+  max-width: 1080px;
   margin: 30px auto;
 `
 
